@@ -4,13 +4,9 @@ const { chromium } = require('playwright');
     const browser = await chromium.launch({ headless: true });
     const page = await browser.newPage();
 
-    await page.goto('http://localhost:8000/simulation.html', { waitUntil: 'networkidle' });
+    await page.goto('http://localhost:8000/index.html', { waitUntil: 'networkidle' });
 
     console.log("Page loaded");
-
-    // Load CSV file
-    const fileInput = await page.$('#fileInput');
-    await fileInput.setInputFiles('Ref_Cr_719.csv');
     await page.waitForTimeout(2000);
 
     // check linear scale
